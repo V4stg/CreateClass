@@ -1,11 +1,19 @@
-﻿namespace CreateClass
+﻿using System;
+
+namespace CreateClass
 {
     public class Person
     {
-        public string Name { get; set; }
-        public string BirthDate { get; set; }
+        public Person(string name, DateTime birthDate)
+        {
+            Name = name;
+            BirthDate = birthDate;
+        }
 
-        public enum Gender { MALE, FEMALE }
+        public string Name { get; set; }
+        public DateTime BirthDate { get; set; }
+
+        public enum Gender { Male, Female }
 
         public override string ToString()
         {

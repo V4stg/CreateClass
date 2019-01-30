@@ -1,37 +1,24 @@
-﻿namespace CreateClass
+﻿using System;
+
+namespace CreateClass
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Person firstPerson = new Person();
-            System.Console.WriteLine("Enter your name:");
-            firstPerson.Name = System.Console.ReadLine();
-            System.Console.WriteLine("Enter your birth date:");
-            firstPerson.BirthDate = System.Console.ReadLine();
+            Person secondPerson = new Person("Laci", DateTime.Now);
+            Console.WriteLine(secondPerson.ToString());
 
-            System.Console.WriteLine(firstPerson.ToString());
-            System.Console.ReadKey(); // to wait for user to quit
+            Employee secondEmployee = new Employee("Laci", DateTime.Now, 1000.0, "Engineer");
+            Console.WriteLine(secondEmployee.ToString());
 
-            Employee firstEmlpoyee = new Employee();
-            System.Console.WriteLine("Enter your name:");
-            firstEmlpoyee.Name = System.Console.ReadLine();
-            System.Console.WriteLine("Enter your birth date:");
-            firstEmlpoyee.BirthDate = System.Console.ReadLine();
-            System.Console.WriteLine("Enter your profession:");
-            firstEmlpoyee.Profession = System.Console.ReadLine();
-            System.Console.WriteLine("Enter your salary:");
-            try
-            {
-                firstEmlpoyee.Salary = double.Parse(System.Console.ReadLine());
-            }
-            catch
-            {
-                System.Console.WriteLine("That is not a number!");
-            }
-
-            System.Console.WriteLine(firstEmlpoyee.ToString());
-            System.Console.ReadKey(); // to wait for user to quit
+            Employee Kovacs = new Employee("Géza", DateTime.Now, 1000, "léhűtő");
+            Kovacs.Room = new Room(111);
+            Employee Kovacs2 = (Employee)Kovacs.Clone();
+            Kovacs2.Room.Number = 112;
+            Console.WriteLine(Kovacs.ToString());
+            Console.WriteLine(Kovacs2.ToString());
+            Console.ReadKey();
         }
     }
 }
